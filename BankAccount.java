@@ -1,5 +1,5 @@
-class BankAccount{
-	private int accauntNumber;
+public class BankAccount{
+	private int accountNumber;
 	private double ballance;
 	
 	//Constructors

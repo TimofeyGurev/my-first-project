@@ -1,4 +1,4 @@
-class SavingAccount extends BankAccount{
+public class SavingAccount extends BankAccount{
 	public SavingAccount(int accountNumber, double ballance){
 		super(accountNumber, ballance);
 	}

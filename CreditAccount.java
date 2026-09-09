@@ -1,4 +1,4 @@
-class CreditAccount extends BankAccount{
+public class CreditAccount extends BankAccount{
 	double creditLimit=5000;
 	public CreditAccount(int accountNumber, double ballance){
 		super(accountNumber, ballance);
