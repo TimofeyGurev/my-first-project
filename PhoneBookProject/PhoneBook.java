@@ -1,14 +1,25 @@
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 public class PhoneBook {
 	public static void main(String[] args) {
 		HashMap<String, String> contacts=new HashMap<>();
 		Scanner sc=new Scanner(System.in);
 		
 		//заполнение телефонной книги
-		System.out.print("Сколько контактов вы хотите добавить? ");
-		int count=sc.nextInt();
-		sc.nextLine();
+		int count=0;
+		boolean validInput=false;
+		while(!validInput){
+			try{
+				System.out.print("Сколько контактов вы хотите добавить? ");
+				count=sc.nextInt();
+				sc.nextLine();
+				validInput=true;
+			} catch (InputMismatchException e){
+				System.out.println("Ошибка: нужно ввести число. Попробуйте снова.");
+				sc.nextLine();
+			}
+		}
 		//ввод контактов
 		for(int i=1;i<=count;i++){
 			System.out.print("Имя контакта номер "+i+": ");
@@ -19,6 +30,9 @@ public class PhoneBook {
 		}
 		
 		//меню
+		validInput=false;
+		while(!validInput){
+			try{
 		boolean running=true;
 		while(running){
 			System.out.println();
@@ -65,6 +79,12 @@ public class PhoneBook {
 				default:
 					System.out.println("Неверный выбор. Попробуйте снова.");
 		}
+		}
+		validInput=true;
+			} catch(InputMismatchException e){
+				System.out.println("Ошибка: нужно ввести число. Попробуйте снова.");
+				sc.nextLine();
+			}
 		}
 		
 		sc.close();
